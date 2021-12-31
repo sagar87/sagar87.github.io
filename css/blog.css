@@ -61,7 +61,9 @@ h1 {
 }
 .nav ul li {
   display: inline;
-  margin-right: 10px;
+  float:right;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .front-matter {
   padding: 20px 0;
@@ -210,4 +212,10 @@ hr {
   body {
     margin: 0 7px;
   }
+}
+
+.center-image
+{
+    margin: auto;
+    display: block;
 }
