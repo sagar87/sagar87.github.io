@@ -1,6 +1,6 @@
 ---
 title: Config Enumerate in Pyro
-subtitle: Pyro is a powerful probabilistic programming language, allowing to define and perform inference with complex statistical models. The usage of the library has become widespread in our lab, as the library enables to perform stochastic variational inference, which enables to scale statistical models to large data. In this post, I’ll take a closer look on Pyro’s enumeration strategy  for discrete latent variables and illustrate this feature in a simple model.
+subtitle: Pyro is a powerful probabilistic programming language, allowing to define and perform inference with complex statistical models. The usage of the library has become widespread in our lab, as the library enables to perform stochastic variational inference, which enables to scale statistical models to large data. In this post, I’ll take a closer look on Pyro’s enumeration strategy for discrete latent variables and illustrate this feature in a simple model.
 layout: default
 date: 2020-11-19
 keywords: blogging, writing
