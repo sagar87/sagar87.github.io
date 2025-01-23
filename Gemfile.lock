@@ -65,7 +65,7 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     latex-decode (0.3.2)
-    liquid (4.0.3)
+    liquid (4.0.4)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -99,6 +99,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-darwin-21
 
 DEPENDENCIES
   jekyll (~> 4.0.0)
@@ -106,6 +107,7 @@ DEPENDENCIES
   jekyll-katex
   jekyll-scholar
   jekyll-sitemap
+  liquid (~> 4.0, >= 4.0.4)
   minima (~> 2.5)
   tzinfo (~> 1.2)
   tzinfo-data
