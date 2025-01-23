@@ -220,7 +220,7 @@ p(z_{nk}|x_n;\boldsymbol{\theta}^{\text{old}})=\frac{\pi^{\text{old}}_k\text{Poi
 
 <h2 id="implementing-the-model">Implementing the model</h2>
 
-<p>After having done the hard math, the actual implementation of the model is straight forward. The <code class="highlighter-rouge">PoissonMixture</code> class takes the as arguments the number of desired clusters $K$ and allows to specifify the initial parameters in the  <code class="highlighter-rouge">__init__</code> method. The implementation of the E-Step and and M-Step directly follows from Eq. $(4)$ and $(6)$. Finally, the <code class="highlighter-rouge">PoissonMixture</code> model provides a function to compute negative log likelihood<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> of the model as well as a <code class="highlighter-rouge">fit</code> method that takes the count data as input.</p>
+<p>After having done the hard math, the actual implementation of the model is straight forward. The <code class="highlighter-rouge">PoissonMixture</code> class takes the as arguments the number of desired clusters $K$ and allows to specifify the initial parameters in the  <code class="highlighter-rouge">__init__</code> method. The implementation of the E-Step and and M-Step directly follows from Eq. $(4)$ and $(6)$. Finally, the <code class="highlighter-rouge">PoissonMixture</code> model provides a function to compute negative log likelihood<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> of the model as well as a <code class="highlighter-rouge">fit</code> method that takes the count data as input.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">PoissonMixture</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">π_init</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">μ_init</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -269,7 +269,7 @@ p(z_{nk}|x_n;\boldsymbol{\theta}^{\text{old}})=\frac{\pi^{\text{old}}_k\text{Poi
             <span class="bp">self</span><span class="p">.</span><span class="n">history</span><span class="p">[</span><span class="s">'π'</span><span class="p">][</span><span class="n">step</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">π_old</span>
             
             <span class="n">Δ_nll</span> <span class="o">=</span> <span class="n">curr_nll</span> <span class="o">-</span> <span class="n">prev_nll</span> 
-            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Step </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">: NLL=</span><span class="si">{</span><span class="n">curr_nll</span><span class="p">:.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, Δ=</span><span class="si">{</span><span class="n">Δ_nll</span><span class="p">:.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Step </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">: NLL=</span><span class="si">{</span><span class="n">curr_nll</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, Δ=</span><span class="si">{</span><span class="n">Δ_nll</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
             <span class="n">prev_nll</span> <span class="o">=</span> <span class="n">curr_nll</span>
             <span class="bp">self</span><span class="p">.</span><span class="n">μ_old</span> <span class="o">=</span> <span class="n">μ_new</span>
             <span class="bp">self</span><span class="p">.</span><span class="n">π_old</span> <span class="o">=</span> <span class="n">π_new</span></code></pre></figure>
@@ -322,7 +322,7 @@ p(x_n) = \sum_{k=1}^{K} p(x_n|k) = \sum_{k=1}^{K} p(k)p(x_n | k) = \sum_{k=1}^{K
 -->
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Technically the <code class="highlighter-rouge">nll</code> method computes the <em>expected joint log likelihood</em> (Eq. $(5)$). <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
